@@ -46,15 +46,19 @@ class FenwickTree {
             fenwickTree.update(i + 1, nums[i]);
         }
 //      tree: [0, 1, 4, 5, 16, 9, 20]
+//      parent 0 left 2 right 2
 //      Query prefix sum up to index 3
         int prefixSum3 = fenwickTree.query(3);
         System.out.println("Prefix sum up to index 3: " + prefixSum3);
+//        9
 
         // Update value at index 2 to 6
         fenwickTree.update(2, 6);
+//        [0, 1, 10, 5, 22, 9, 20]
 
         // Query range sum from index 1 to index 4
         int rangeSum1to4 = fenwickTree.queryRange(1, 4);
+//22
         System.out.println("Range sum from index 1 to index 4: " + rangeSum1to4);
     }
 }
