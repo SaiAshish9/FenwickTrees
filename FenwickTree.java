@@ -24,7 +24,7 @@ class FenwickTree {
     public int query(int i) {
         int sum = 0;
         while (i > 0) {
-            sum += tree[i];
+            sum += tree[i]; //  tree of parent node
             i -= i & (-i); // Move to the parent node
         }
         return sum;
@@ -46,11 +46,13 @@ class FenwickTree {
             fenwickTree.update(i + 1, nums[i]);
         }
 //      tree: [0, 1, 4, 5, 16, 9, 20]
+
 //      parent 0 left 2 right 2
 //      Query prefix sum up to index 3
-        int prefixSum3 = fenwickTree.query(3);
-        System.out.println("Prefix sum up to index 3: " + prefixSum3);
+//        int prefixSum3 = fenwickTree.query(3);
+//        System.out.println("Prefix sum up to index 3: " + prefixSum3);
 //        9
+        System.out.println(fenwickTree.queryRange(1, 4));
 
         // Update value at index 2 to 6
         fenwickTree.update(2, 6);
