@@ -16,6 +16,8 @@ class FenwickTree {
             i += i & (-i); // Move to the next node
         }
     }
+//    in Fenwick trees, "i & (-i)" is used to efficiently
+//    find the least significant bit (LSB) that is set to 1 in the binary representation of "i".
 
     // Query the prefix sum up to index i
     public int query(int i) {
@@ -32,6 +34,8 @@ class FenwickTree {
         return query(end) - query(start - 1);
     }
 
+//    i's compliment = invert bits of i - 1
+
     public static void main(String[] args) {
         int[] nums = {1, 3, 5, 7, 9, 11};
         FenwickTree fenwickTree = new FenwickTree(nums.length);
@@ -40,8 +44,8 @@ class FenwickTree {
         for (int i = 0; i < nums.length; i++) {
             fenwickTree.update(i + 1, nums[i]);
         }
-
-        // Query prefix sum up to index 3
+//      tree: [0, 1, 4, 5, 16, 9, 20]
+//      Query prefix sum up to index 3
         int prefixSum3 = fenwickTree.query(3);
         System.out.println("Prefix sum up to index 3: " + prefixSum3);
 
