@@ -18,6 +18,7 @@ class FenwickTree {
     }
 //    in Fenwick trees, "i & (-i)" is used to efficiently
 //    find the least significant bit (LSB) that is set to 1 in the binary representation of "i".
+//    right to left
 
     // Query the prefix sum up to index i
     public int query(int i) {
@@ -62,3 +63,13 @@ class FenwickTree {
 // query the prefix sum up to a specific index or the range sum between two indices.
 // You can create an instance of FenwickTree with
 // the desired size and use its methods to perform updates and queries efficiently.
+
+
+//    In a Fenwick tree (Binary Indexed Tree),
+//    you can obtain the left and right nodes of a given node using bitwise operations.
+//        Given a node i:
+//        To find the parent node, you can clear the least significant bit that is set to 1.
+//        This can be done by performing i - (i & -i).
+//        To find the left child node, you can add the least significant bit that is not set to 1.
+//        This can be done by performing i + (i & -i).
+//        To find the right child node, you can add 1 to the current node.
